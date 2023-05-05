@@ -170,42 +170,14 @@ CREATE STREAM foodcoded_analyze WITH (kafka_topic = 'foodcoded_analyze') AS
                                      WHEN (foodcoded_clean.pay_meal_out = 6) THEN 'more than $40.01'
                                 ELSE null END,
             persian_food = foodcoded_clean.persian_food,
-            persian_food_desc = CASE WHEN (foodcoded_clean.persian_food = 1) THEN 'very unlikely'
-                                     WHEN (foodcoded_clean.persian_food = 2) THEN 'unlikely'
-                                     WHEN (foodcoded_clean.persian_food = 3) THEN 'neutral'
-                                     WHEN (foodcoded_clean.persian_food = 4) THEN 'likely'
-                                     WHEN (foodcoded_clean.persian_food = 5) THEN 'very likely'
-                                ELSE null END,
             self_perception_weight = foodcoded_clean.self_perception_weight,
-            self_perception_weight_desc = CASE WHEN (foodcoded_clean.self_perception_weight = 1) THEN 'slim'
-                                               WHEN (foodcoded_clean.self_perception_weight = 2) THEN 'very fit'
-                                               WHEN (foodcoded_clean.self_perception_weight = 3) THEN 'just right'
-                                               WHEN (foodcoded_clean.self_perception_weight = 4) THEN 'slightly overweight'
-                                               WHEN (foodcoded_clean.self_perception_weight = 5) THEN 'overweight'
-                                               WHEN (foodcoded_clean.self_perception_weight = 6) THEN 'i dont think myself in these terms'
-                                          ELSE null END,
             sports = foodcoded_clean.sports,
             sports_desc = CASE WHEN (foodcoded_clean.sports = 1) THEN 'Yes'
                                WHEN (foodcoded_clean.sports = 2) THEN 'No'
                           ELSE null END,
             thai_food = foodcoded_clean.thai_food,
-            thai_food_desc = CASE WHEN (foodcoded_clean.thai_food = 1) THEN 'very unlikely'
-                                  WHEN (foodcoded_clean.thai_food = 2) THEN 'unlikely'
-                                  WHEN (foodcoded_clean.thai_food = 3) THEN 'neutral'
-                                  WHEN (foodcoded_clean.thai_food = 4) THEN 'likely'
-                                  WHEN (foodcoded_clean.thai_food = 5) THEN 'very likely'
-                             ELSE null END,
             veggies_day = foodcoded_clean.veggies_day,
-            veggies_day_desc = CASE WHEN (foodcoded_clean.veggies_day = 1) THEN 'very unlikely'
-                                    WHEN (foodcoded_clean.veggies_day = 2) THEN 'unlikely'
-                                    WHEN (foodcoded_clean.veggies_day = 3) THEN 'neutral'
-                                    WHEN (foodcoded_clean.veggies_day = 4) THEN 'likely'
-                                    WHEN (foodcoded_clean.veggies_day = 5) THEN 'very likely'
-                               ELSE null END,
             vitamins = foodcoded_clean.vitamins,
-            vitamins_desc = CASE WHEN (foodcoded_clean.vitamins = 1) THEN 'Yes'
-                                 WHEN (foodcoded_clean.vitamins = 2) THEN 'No'
-                            ELSE null END,
             weight = foodcoded_clean.weight
 
       FROM foodcoded_clean
